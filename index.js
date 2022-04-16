@@ -3,6 +3,7 @@ const cors = require('cors')
 const bodyParser = require('body-parser')
 const mongoose = require('mongoose')
 const dotenv = require('dotenv')
+const playerRoutes = require('./routes/players')
 
 const app = express()
 
@@ -17,6 +18,8 @@ app.get("/", (req, res) => {
     message: "The index route of Game board server "
   })
 })
+
+app.use("/players", playerRoutes)
 
 const PORT = process.env.PORT || 4400
 const DB_CONNECTION_URL = process.env.DB_CONNECTION_URL
