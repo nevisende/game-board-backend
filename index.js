@@ -43,6 +43,8 @@ redisClient.on("error", function (err) {
   console.error("fail connection of redis" + err);
 });
 
+redisClient.connect();
+
 const app = express()
 
 app.enable("trust proxy")
@@ -77,4 +79,4 @@ mongoose
   })
 
 app.listen(PORT, () => { console.log(`Game board server is listening on ${PORT}`) })
-exports.redisClient;
+exports.redisClient = redisClient;
