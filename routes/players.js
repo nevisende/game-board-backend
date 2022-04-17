@@ -1,7 +1,11 @@
 const express = require('express');
-const { getAll } = require('../controllers/players')
+const { getHighHundredRanked, createFakePlayers, deleteAllPlayers } = require('../controllers/players')
 const router = express.Router()
 
-router.get("/", getAll)
+router
+  .route('/')
+  .get(getHighHundredRanked)
+  .post(createFakePlayers)
+  .delete(deleteAllPlayers)
 
 module.exports = router
